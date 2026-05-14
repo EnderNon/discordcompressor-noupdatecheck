@@ -2,14 +2,6 @@ package main
 
 import (
 	"flag"
-	"github.com/google/uuid"
-	"github.com/vladaad/discordcompressor/build"
-	"github.com/vladaad/discordcompressor/encoder"
-	"github.com/vladaad/discordcompressor/encoder/audio"
-	"github.com/vladaad/discordcompressor/metadata"
-	"github.com/vladaad/discordcompressor/settings"
-	"github.com/vladaad/discordcompressor/uploader"
-	"github.com/vladaad/discordcompressor/utils"
 	"io"
 	"log"
 	"math"
@@ -19,6 +11,15 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/google/uuid"
+	"github.com/vladaad/discordcompressor/build"
+	"github.com/vladaad/discordcompressor/encoder"
+	"github.com/vladaad/discordcompressor/encoder/audio"
+	"github.com/vladaad/discordcompressor/metadata"
+	"github.com/vladaad/discordcompressor/settings"
+	"github.com/vladaad/discordcompressor/uploader"
+	"github.com/vladaad/discordcompressor/utils"
 )
 
 var targetSize int
@@ -33,8 +34,6 @@ var forceAEncoder string
 var forceContainer string
 
 func init() {
-	// Update checker
-	utils.CheckForUpdates()
 	// Settings dir creation
 	err := os.MkdirAll(utils.SettingsDir(), 0755)
 	if err != nil {
